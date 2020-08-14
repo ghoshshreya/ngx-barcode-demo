@@ -1,0 +1,13 @@
+Serial No: <input type="text" [(ngModel)]="serialNoInput">
+<br><br>
+Select Format:
+<select [(ngModel)]="selectedFormat">
+  <option *ngFor="let format of formatArr"> {{format}} </option>
+</select>
+<br><br>
+<button type="button" (click)="serialNo = serialNoInput">Generate Barcode</button>
+<br><br>
+<button type="button" (click)="serialNo = null">Reset</button>
+
+<br><br><br><br>
+<ngx-barcode *ngIf="serialNo && serialNo != ''" [bc-value]="serialNo" [bc-format]="selectedFormat" [bc-display-value]="true"></ngx-barcode>
